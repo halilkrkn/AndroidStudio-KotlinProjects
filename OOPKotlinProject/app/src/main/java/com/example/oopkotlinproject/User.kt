@@ -1,7 +1,7 @@
 package com.example.oopkotlinproject
 
 //**** Constructer & init ****
-class User {
+ class User {
 
     //Property = Özellik
     var name : String? = null

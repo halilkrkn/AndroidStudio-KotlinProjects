@@ -8,6 +8,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+
+        // Bir snıf sadece bir Sınıftan Kalıtım alabilir.
+        //Ama bir Sınıf birden fazla Sınıfla kalıtım yapabilir.
+
         //Constructor
         println("****Constructor & init ******")
         var myUser = User("Ashely",12)
@@ -63,6 +67,60 @@ class MainActivity : AppCompatActivity() {
         karabas.sing()
         karabas.test()
 
+
+        //Abstract (Soyut Sınıf) & Interface
+        //Abstract (Soyut Sınıf) = Obje=Instance oluşturamayacağımız bir Snıftır.
+        // Bir sınıf tek bir Abstract Sınıfla kalıtım yapar.
+        // var myPerson = People() - Burada People abstract Classının Objesini oluşturamadık.
+        // Interface (AraYüz) = Bir Sınıf birden fazla interfacele kalıtım yapabilir.
+
+        println("*******Abstract - Interface********")
+
+        var myPiano = Piano()
+        myPiano.info()
+        myPiano.brand = "Yamaha"
+        myPiano.digital = false
+        println(myPiano.roomName)
+
+        //Lambda Expressions
+        println("***Lambda Expressions***")
+        // Bir fonksiyonu tek bir satırda yazmak için geliştirilen bir özellik
+        fun printString(myString: String){
+            println(myString)
+        }
+        printString("My Test String")
+
+        val testString = {testString : String -> println(testString)}
+        testString("My Lamdda Test String")
+
+        val multiplyLambda = { a:Int, b: Int -> a*b }
+        println(multiplyLambda(5,4))
+
+        val multiplyLambda2 : (Int,Int) -> Int = { a,b -> a*b }
+        println(multiplyLambda2(3,4))
+
+        //İleri Seviye Lambda Expressions
+        //Asynchrnous = Senkronize olmayan bir durum
+        //callback function, listener function, copmletion function
+        println("****Asynchrnous****")
+
+        fun downloadMusicians(url: String, completion: () -> Unit ){
+            //url -> download
+            //data
+            completion()
+        }
+        downloadMusicians("metalica.com",{
+            println("completed && ready")
+        })
+        fun downloadMusicians2(url: String, completion: (Musician) -> Unit ){
+            //url -> download
+            //data
+            val kirkHammet = Musician("Kirk", "Guitar", 60)
+            completion(kirkHammet)
+        }
+        downloadMusicians2("metalica.com",{musician ->
+            println(musician.name)
+        })
 
 
     }
