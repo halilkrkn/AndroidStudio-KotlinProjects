@@ -93,6 +93,13 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
             }else{
                 //kullanıcı nereye tıkladıysa orası yazılacak.
+                // Eski son konumu buluyoruz
+                val latitude = intent.getDoubleExtra("latitude",0.0)
+                val longitude = intent.getDoubleExtra("longitude",0.0)
+                val name = intent.getStringExtra("name")
+                val location = LatLng(latitude,longitude)
+                mMap.addMarker(MarkerOptions().position(location).title(name))
+                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(location,17f))
             }
         }
     }
@@ -124,7 +131,32 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                 e.printStackTrace()
             }
             mMap.addMarker(MarkerOptions().position(p0!!).title(address))
+            namesArray.add(address)
+            locationArray.add(p0)
             Toast.makeText(applicationContext, "New Place Created", Toast.LENGTH_SHORT).show()
+
+            try {
+                //Enlem ve boylamları oluşturup Stringe dönüştürdük kaydettik.
+                val latitude = p0.latitude.toString()
+                val longitude = p0.longitude.toString()
+
+                //Veritabanı işlemleri
+                val database = openOrCreateDatabase("Places", Context.MODE_PRIVATE, null)
+                database.execSQL("CREATE TABLE IF NOT EXISTS places (name VARCHAR, latitude VARCHAR, longitude VARCHAR)")
+                val toCompile = "INSERT INTO places (names,latitude,longitude) VALUES (?,?,?)"
+                val sqLiteStatement = database.compileStatement(toCompile)
+                sqLiteStatement.bindString(1,address)
+                sqLiteStatement.bindString(2,latitude)
+                sqLiteStatement.bindString(3,longitude)
+
+                sqLiteStatement.execute()
+
+            }catch (e: Exception){
+                e.printStackTrace()
+            }
+
+
+
         }
 
 
