@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/welcome"
+    tools:context=".MainActivity">
+
+    <EditText
+        android:id="@+id/userNameText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="53dp"
+        android:layout_marginBottom="74dp"
+        android:ems="10"
+        android:hint="Username"
+        android:inputType="textPersonName"
+        android:textColor="#FF9800"
+        android:textColorHint="#FF9800"
+        app:layout_constraintBottom_toTopOf="@+id/userPasswordText"
+        app:layout_constraintEnd_toEndOf="@+id/userPasswordText"
+        app:layout_constraintStart_toStartOf="@+id/userPasswordText"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/userPasswordText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="90dp"
+        android:layout_marginBottom="172dp"
+        android:ems="10"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:textColor="#FF9800"
+        android:textColorHint="#FF9800"
+        app:layout_constraintBottom_toTopOf="@+id/signInButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/userNameText" />
+
+    <Button
+        android:id="@+id/signInButton"
+        style="@android:style/Widget.Holo.Button.Borderless"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="88dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="151dp"
+        android:onClick="SignIn"
+        android:text="Sign In"
+        android:textColor="#FF9800"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/signUpButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/userPasswordText" />
+
+    <Button
+        android:id="@+id/signUpButton"
+        style="@android:style/Widget.Holo.Button.Borderless"
+        android:layout_width="0dp"
+        android:layout_height="65dp"
+        android:layout_marginEnd="83dp"
+        android:onClick="SignUp"
+        android:text="Sign Up"
+        android:textColor="#FF9800"
+        app:layout_constraintBaseline_toBaselineOf="@+id/signInButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/signInButton" />
+</androidx.constraintlayout.widget.ConstraintLayout>
