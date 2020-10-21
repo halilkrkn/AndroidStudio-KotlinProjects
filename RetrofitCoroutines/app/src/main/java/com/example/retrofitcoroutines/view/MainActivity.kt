@@ -2,6 +2,7 @@ package com.example.retrofitcoroutines.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log.println
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -26,6 +27,12 @@ class MainActivity : AppCompatActivity(), RecyclerViewAdapter.Listener {
 
     private var job : Job? = null
 
+    val exceptionHandler = CoroutineExceptionHandler{ coroutineContext, throwable ->
+
+        println("Error : ${throwable.localizedMessage}")
+            
+    }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,10 +48,6 @@ class MainActivity : AppCompatActivity(), RecyclerViewAdapter.Listener {
         val layoutManager : RecyclerView.LayoutManager = LinearLayoutManager(this)
         recyclerView.layoutManager = layoutManager
 
-        loadDataRetrofit()
-    }
-    private fun loadDataRetrofit(){
-
         val retrofit = Retrofit.Builder()
             .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
@@ -54,7 +57,7 @@ class MainActivity : AppCompatActivity(), RecyclerViewAdapter.Listener {
         job = CoroutineScope(Dispatchers.IO).launch {
             val response = retrofit.getData()
 
-            withContext(Dispatchers.Main){
+            withContext(Dispatchers.Main + exceptionHandler){
                 if (response.isSuccessful){
                     response.body()?.let {
                         cryptoModels = ArrayList(it)
@@ -67,11 +70,8 @@ class MainActivity : AppCompatActivity(), RecyclerViewAdapter.Listener {
             }
 
         }
-
-
-
-
     }
+
     override fun onItemClick(cryptoModel: CryptoModel) {
         Toast.makeText(applicationContext, "Clicked : ${cryptoModel.currency}", Toast.LENGTH_SHORT).show()
 
