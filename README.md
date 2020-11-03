@@ -1,3 +1,3 @@
 # AndroidStudio-KotlinProjects
 
-Easy to Hard Projects - Kolaydan Zora Projeler..
+Easy to Hard Projects - Kolaydan Zora Projeler...
