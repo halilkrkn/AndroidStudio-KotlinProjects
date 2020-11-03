@@ -3,7 +3,7 @@
 Easy to Hard Projects - Kolaydan Zora Projeler...
 
 
-Bu Projleri Udemy Üzereinden Atıl Samancıoğlu eğitmenliğinde Android Mobil Uygulama Kursu: Kotlin & Java Kursunu bitirmekten mutluluk duyuyorum.
+Bu Projeleri Udemy Üzereinden Atıl Samancıoğlu eğitmenliğinde Android Mobil Uygulama Kursu: Kotlin & Java Kursunu bitirmekten mutluluk duyuyorum.
 
 Bu kurs sayesinde hem Java hemde Kotlin i mobile uyguluma hayatında görmüş oldum. 
 
@@ -14,6 +14,8 @@ Java bilgim her ne kadar olsa da bu kurs sayesinde daha mobile uygulama için ge
 Ama özel olarak Kotlin üzerine durup daha fazla projlere gerçekleştirmeye devam ettim. 
 
 Android hayatına bu şekilde girmekten mutluyum. Öğrenmem gereken yetkinlikleri fazlasıyla bu kurs sayesinde gördüğümü ve bu kursla da kalmayarak Kotlin üzerinden Android projesi gerçekleştirme konusunda daha da kendimi geliştirme içerisindeyim. 
+
+Bu kurs sayesinde Orta seviye bir bilgi sahibi durumuna geldiğimi bu kurstaki projeler ve özel olarak yaptığım projelere sayesinde fark edeceğinizi düşünüyorum. 
 
 Bu şekilde Mobil Uygulama Geliştirme gerçekten çok zevkli ve dinamik bir işleyiş sunuyor olması beni daha içerisine çekti. Tabii buna Kotlinin Cazibesinin de etkisi yok değil.
 
