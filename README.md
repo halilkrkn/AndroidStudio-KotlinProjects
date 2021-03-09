@@ -17,7 +17,7 @@ Bu kurs sayesinde Orta seviye bir bilgi sahibi durumuna geldiğimi bu kurstaki p
 Bu şekilde Mobil Uygulama Geliştirme gerçekten çok zevkli ve dinamik bir işleyiş sunuyor olması beni daha içerisine çekti. Tabii buna Kotlinin Cazibesinin de etkisi yok değil.
 
 
-Sertfika için;
+# Sertfika için;
 
 https://www.udemy.com/certificate/UC-69c7d1ab-0e47-44f4-86bf-4817afa659cf/
 
